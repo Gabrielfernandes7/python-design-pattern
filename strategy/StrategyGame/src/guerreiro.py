@@ -1,24 +1,13 @@
+from .habilidades import IHabilidade
+from typing import Type
+
 class Guerreiro:
-    def __init__(self, habilidade_arco, habilidade_cura, habilidade_luta) -> None:
-        self.habilidade_arco = habilidade_arco
-        self.habilidade_cura = habilidade_cura
-        self.habilidade_luta = habilidade_luta
+    def __init__(self, habilidade: Type[IHabilidade]):
+        self.habilidade = habilidade
 
-    def curar(self):
-        print("Curar outro guerreiro")
-
-    def luta(self):
-        print("Ataca com espada")
-
-    def flexa(self):
-        print("Ataca com flechas")
+    def acao(self):
+        self.habilidade.comportamento()
 
     def atributos(self):
-        print(
-            '''
-                Nível arco: {}
-                Nível cura: {}
-                Nível luta: {}
-            '''.format(self.habilidade_arco, self.habilidade_luta, self.habilidade_cura)
-        )
+        self.habilidade.nivel_atributo()
     
