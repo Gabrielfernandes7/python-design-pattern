@@ -14,3 +14,7 @@ Esse pattern pode ferir o SRP (Princípio da Responsabilidade única, do SOLID)
 
 Dificuldade de testar: Pode dififultar os testes unitparios, pois a dependências entre as classes aumentam
 
+
+Observação:
+
+Implementar um Singleton em um arquivo de conexão do banco de dados do FastAPI é um problema, visto que o SQLAlchemy recomenda que você crie uma nova sessão para cada requisição. Isso é a prática ideal e se alinha melhor com o modelo de concorrência e o ciclo de vida das requisições em aplicações web. 
